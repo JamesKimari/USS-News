@@ -13,7 +13,7 @@ def index():
     entertainment_news = get_news('entertainment')
     sports_news = get_news('sports')
     print(business_news)
-    title = "News Hub"
+    title = "US News"
     return render_template('index.html', title=title, general = general_news,
      business=business_news, entertainment=entertainment_news, sports = sports_news)
 

@@ -48,3 +48,4 @@ def process_articles(news_list):
 
     return news_articles
 
+
