@@ -1,7 +1,6 @@
-class Sources:
+class Source:
     """
     sources class to define source objects
     """
-    def __init__(self, id, name):
-        self.id = id
+    def __init__(self, name,):
         self.name = name
