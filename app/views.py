@@ -15,7 +15,7 @@ def index():
     print(business_news)
     title = "US News"
     return render_template('index.html', title=title, general = general_news,
-     business=business_news, entertainment=entertainment_news, sports = sports_news)
+    business=business_news, entertainment=entertainment_news, sports = sports_news)
 
 #views
 @app.route('/news/<int:news_id>')
