@@ -3,8 +3,7 @@ class News:
     News class to define News objects
     """
 
-    def __init__(self, source, title, description, url, urlToImage, publishedAt):
-        self.source = source
+    def __init__(self, title, description, url, urlToImage, publishedAt):
         self.title = title
         self.description = description
         self.url = url

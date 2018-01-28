@@ -41,36 +41,47 @@ def process_sources(sources_list):
     news_sources = []
     for source in sources_list:
         name = source.get('name')
-        
+        url = source.get('url')       
        
         if name:
-            source_object = Source(name)
+            source_object = Source(name, url)
             news_sources.append(source_object)
-
+    
     return news_sources
 
-def get_news(category):
-    get_news_description_url = base_url.format(top_headlines, category, api_key)
+def get_general(category):
+    get_news_url = base_url.format(top_headlines,category,api_key)
 
-    with urllib.request.urlopen(get_news_description_url) as url:
-        news_description_data = url.read()
-        news_description_response = json.loads(news_description_data)
+    with urllib.request.urlopen(get_news_url) as url:
+        news_data = url.read()
+        news_response = json.loads(news_data)
 
         news_object = None
 
-        if news_description_response:
-            source = news_description_response.get('source').get('name')
-            title = news_description_response.get('title')
-            description = news_description_response.get('description')
-            url = news_description_response.get('url')
-            urlToImage = news_description_response.get('urlToImage')
-            publishedAt = news_description_response.get('publishedAt')
+        if news_response['articles']:
+            news_articles_list = news_response['articles']
+            news_articles = process_news(news_articles_list)            
 
-        news_object = News(source, title, description, url, urlToImage, publishedAt)
+    return news_articles
 
-    return news_object
+def process_news(news_list):
+    """
+    Function that processes the news sources and transforms them to a list of objects
+    """
+    news_articles = []
+    for news in news_list:             
+        title = news.get('title')
+        description = news.get('description')
+        url = news.get('url')
+        urlToImage = news.get('urlToImage')
+        publishedAt = news.get('publishedAt')
+        
+        if urlToImage:
+            news_object = News(title, description, url, urlToImage, publishedAt)
+            news_articles.append(news_object)
 
-
+    return news_articles
+    
 
 
 

@@ -1,7 +1,11 @@
 {% macro displaySourceList(source_list) %} 
-{% for source in source_list %}
-
-    <p>{{source.name}}</p>
-   
+    {% for source in source_list %}
+        <p><a href="{{source.url}}">{{source.name}}</a></p>   
     {% endfor %} 
+{% endmacro %}
+
+{% macro displayArticlesList(articles_list) %}     
+   
+    <h3><a href="{{ url_for('news', category='general') }}" target = "_blank">General news</a></h3> 
+    
 {% endmacro %}

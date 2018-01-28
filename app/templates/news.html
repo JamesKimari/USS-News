@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %} {% for general_news in general %}
+
+<div class="row" style="padding-bottom: 5%">
+    <div class="col-md-5">
+        <img src="{{general_news.urlToImage}}" alt="{{general_news.title}}" class="img-responsive">
+    </div>
+    <br>
+    <br>
+    <div class="col-mid-5 offset-mid-1">
+        <h3>{{general_news.title}}</h3>
+        <p>{{general_news.description|truncate(200)}}</p>
+        <span style="color: dodgerblue">
+            <a href="{{general_news.url}}" target="_blank">Read More...</a>
+        </span>
+        <p>{{general_news.publishedAt}}</p>
+    </div>
+</div>
+
+{% endfor %} {% endblock %}
