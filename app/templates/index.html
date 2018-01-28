@@ -1,8 +1,18 @@
-{% extends 'base.html' %} {% import 'macros.html' as macro %} {% if title %}
+{% extends 'base.html' %} {% import 'macros.html' as macro %} 
+
+{% if title %}
 <title>{{title}}</title>
 {% else %}
 <title>US News</title>
-{% endif %} {% block content %}
+{% endif %} 
+
+{% block styles %} 
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"> 
+{% endblock %}
+
+
+{% block content %}
 <div class="container">
     <div class="row">
         <div class="col-md-4">
