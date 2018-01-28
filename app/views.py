@@ -12,13 +12,12 @@ def index():
     business_news = get_sources('business')
     entertainment_news = get_sources('entertainment')
     health_news = get_sources('health')
-    science_news = get_sources('science')
     technology_news = get_sources('technology')
     sports_news = get_sources('sports')
 
     title = "US News"
     return render_template('index.html', title=title, general = general_news,
-    business = business_news, entertainment = entertainment_news, health = health_news, technology = technology_news, science = science_news, sports = sports_news)
+    business = business_news, entertainment = entertainment_news, health = health_news, technology = technology_news, sports = sports_news)
 
 @app.route('/v2/<category>')
 def news(category):
