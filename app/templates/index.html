@@ -1,63 +1,59 @@
-{% extends 'base.html' %} {% import 'macros.html' as macro %} 
-
-{% if title %}
+{% extends 'base.html' %} {% import 'macros.html' as macro %} {% if title %}
 <title>{{title}}</title>
 {% else %}
 <title>US News</title>
 {% endif %} 
 
-{% block styles %} 
-{{ super() }}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"> 
-{% endblock %}
+{% block styles %}
+    {{ super () }}
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/index.css')}}">
 
+{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
+<div class="container-fluid" style="background-color: rgb(238,238,238)">
+<div class="row">
+<div class="col-md-3" style="height: 90vh; width: 15em; overflow: scroll; background-color: rgb(34,53,71)">
 
-            <h3>General Sources</h3>
-            <ul>
+            <hr><h4 style="color:#d5dade">General Sources</h4><hr>
+            <div>
                 {{macro.displaySourceList(general)}}
-            </ul>
+            </div><hr>
 
-            <h3>Business Sources</h3>
-            <ul>
+            <h4 style="color:#d5dade">Business Sources</h4><hr>
+            <div>
                 {{macro.displaySourceList(business)}}
-            </ul>
+            </div><hr>
 
-            <h3>Entertainment Sources</h3>
-            <ul>
+            <h4 style="color:#d5dade">Entertainment Sources</h4><hr>
+            <div>
                 {{macro.displaySourceList(entertainment)}}
-            </ul>
+            </div><hr>
 
-            <h3>Health Sources</h3>
-            <ul>
+            <h4 style="color:#d5dade">Health Sources</h4><hr>
+            <div>
                 {{macro.displaySourceList(health)}}
-            </ul>
+            </div><hr>
 
-            <h3>Science Sources</h3>
-            <ul>
+            <h4 style="color:#d5dade">Science Sources</h4><hr>
+            <div>
                 {{macro.displaySourceList(science)}}
-            </ul>
+            </div><hr>
 
-            <h3>Technology Sources</h3>
-            <ul>
+            <h4 style="color:#d5dade">Technology Sources</h4><hr>
+            <div>
                 {{macro.displaySourceList(technology)}}
-            </ul>
+            </div><hr>
 
-            <h3>Sports Sources</h3>
-            <ul>
+            <h4 style="color:#d5dade">Sports Sources</h4><hr>
+            <div>
                 {{macro.displaySourceList(sports)}}
-            </ul>
+            </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-9">
             {{macro.displayArticlesList(general)}}
-        </div>
+        </div><hr>
 
     </div>
-</div>
-
-{% endblock %}
+    {% endblock %}
