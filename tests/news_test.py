@@ -1,6 +1,5 @@
 import unittest
-from models import news
-News = news.News
+from app.models import News
 
 class NewsTest(unittest.TestCase):
     """
@@ -11,8 +10,7 @@ class NewsTest(unittest.TestCase):
         """
         Set up method that will run before every test
         """
-        self.new_news = News("the-washington-post",
-                            "Bush Man", 
+        self.new_news = News("Bush Man", 
                              "Trump apologizes for retweeting",
                              "In an interview with ...",
                              "https://www.washingtonpost.com/world/trump-apologizes-for-retweeting-anti-muslim-videos-from-far-right-british-group/2018/01/26/7d334e0c-0268-11e8-9d31-d72cf78dbeee_story.html",
@@ -22,5 +20,5 @@ class NewsTest(unittest.TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.new_news, News))
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()

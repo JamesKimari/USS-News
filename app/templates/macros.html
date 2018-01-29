@@ -1,14 +1,10 @@
 {% macro displaySourceList(sources_list) %} {% for source in sources_list %}
-<div class="hover well">
+<div class="hover">
     <a href="/news/{{source.id}}" style="text-decoration: none; color:#d5dade;">{{source.name}}</a>
 </div>
 
 <style>
-    .well{
-        background-color: #223547;
-        border-radius: 0%;
-        border-style: none;
-    }
+    
     .hover a:hover {
         color: #42aadd;
     }
@@ -21,20 +17,31 @@
 
 {% endfor %} {% endmacro %} {% macro displayNewsList(news_list) %} {% for news in news_list %}
 
-<div class="row" style="padding-bottom: 5%">
+<div class="row jumbotron" style="padding-bottom: 0%; padding-top: 2.5%">
     <div class="col-md-5">
         <img src="{{news.urlToImage}}" alt="{{news.title}}" class="img-responsive">
     </div>
-    <br>
-    <br>
+    
     <div class="col-mid-5 offset-mid-1">
-        <h3>{{news.title}}</h3>
-        <p>{{news.description|truncate(200)}}</p>
-        <span style="color: dodgerblue">
-            <a href="{{news.url}}" target="_blank">Read More...</a>
-        </span>
-        <p>{{news.publishedAt}}</p>
+        <h4>{{news.title}}</h4>
+        <p style="font-size: 16px;">{{news.description|truncate(200)}}&ensp;<span>
+            <a href="{{news.url}}" target="_blank"><span style="color: hotpink;">Read More...</span></a>
+        </span></p>
+        
+        <p style="font-size: 1em; color: darkgrey;">Date published: {{news.publishedAt}}</p>
     </div>
 </div>
+
+<style>
+    h4 {
+        color: dodgerblue;
+    }
+
+    .jumbotron {
+        background-color: white;
+        border-bottom-right-radius: 10%;
+        padding-bottom: 4%;
+    }
+</style>
 
 {% endfor %} {% endmacro %}

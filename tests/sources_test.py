@@ -1,6 +1,5 @@
 import unittest
-from models import sources
-Sources = sources.Sources
+from app.models import Source
 
 class SourcesTest(unittest.TestCase):
     """
@@ -10,10 +9,10 @@ class SourcesTest(unittest.TestCase):
         """
         setUp method that will run before every test
         """
-        self.new_sources = Sources("abc-news","ABC News")
+        self.new_sources = Source("abc-news","ABC News", "abcnews.com")
 
     def test_instance(self):
-        self.assertTrue(isinstance(self.new_sources, Sources))
+        self.assertTrue(isinstance(self.new_sources, Source))
 
 if __name__ == '__main__':
     unittest.main()
