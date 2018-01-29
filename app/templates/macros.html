@@ -1,11 +1,40 @@
-{% macro displaySourceList(source_list) %} 
-    {% for source in source_list %}
-        <p><a href="{{source.url}}" style="text-decoration: none; color:#d5dade;">{{source.name}}</a></p>   
-    {% endfor %} 
-{% endmacro %}
+{% macro displaySourceList(sources_list) %} {% for source in sources_list %}
+<div class="hover well">
+    <a href="/news/{{source.id}}" style="text-decoration: none; color:#d5dade;">{{source.name}}</a>
+</div>
 
-{% macro displayArticlesList(articles_list) %}     
-   
-    <h3><a href="{{ url_for('news', category='general') }}" target = "_blank">General news</a></h3> 
-    
-{% endmacro %}
+<style>
+    .well{
+        background-color: #223547;
+        border-radius: 0%;
+        border-style: none;
+    }
+    .hover a:hover {
+        color: #42aadd;
+    }
+
+    .hover {
+        font-size: 16px;
+        padding: 0.5em 0em 0em 0.5em;
+    }
+</style>
+
+{% endfor %} {% endmacro %} {% macro displayNewsList(news_list) %} {% for news in news_list %}
+
+<div class="row" style="padding-bottom: 5%">
+    <div class="col-md-5">
+        <img src="{{news.urlToImage}}" alt="{{news.title}}" class="img-responsive">
+    </div>
+    <br>
+    <br>
+    <div class="col-mid-5 offset-mid-1">
+        <h3>{{news.title}}</h3>
+        <p>{{news.description|truncate(200)}}</p>
+        <span style="color: dodgerblue">
+            <a href="{{news.url}}" target="_blank">Read More...</a>
+        </span>
+        <p>{{news.publishedAt}}</p>
+    </div>
+</div>
+
+{% endfor %} {% endmacro %}

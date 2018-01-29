@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_sources, get_general
+from .request import get_sources, get_news
 
 @app.route('/')
 def index():
@@ -19,12 +19,11 @@ def index():
     return render_template('index.html', title=title, general = general_news,
     business = business_news, entertainment = entertainment_news, health = health_news, technology = technology_news, sports = sports_news)
 
-@app.route('/v2/<category>')
-def news(category):
+@app.route('/news/<id>')
+def news(id):
     """
     view root page function that returns the index page and its data
     """
-    general_news = get_general('general')
-    category = "general"
-
-    return render_template('news.html', general = general_news, category = category)
+    news_articles = get_news(id)
+       
+    return render_template('index.html', news = news_articles)
