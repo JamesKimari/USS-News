@@ -74,8 +74,10 @@
                     <div class="jumbotron-fluid">
                         <div class="panel-heading" style="background-color: dodgerblue;">
                             <span class="font-size: 16px;">Business News</span>
-                        </div>                        
+                        </div>
+                        <a href="{{ url_for('main.general', category='business')}}">
                         <img src="{{ url_for('static', filename="images/business1.jpg")}}" alt="" class="img-responsive">                        
+                        </a>
                         <style>
                             .jumbotron-fluid {
                                 margin: 5% 0% 0% 0%;

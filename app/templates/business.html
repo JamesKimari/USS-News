@@ -1,0 +1,105 @@
+{% extends 'base.html' %} {% import 'macros.html' as macro %} {% block content %}
+<div class="row">
+    <div class="col-md-2" style="background-color: rgb(34,53,71)">
+
+        <div class="sidepane">
+            <hr />
+            <h4>General Sources</h4>
+            <hr />
+            <p>ABC News</p>
+            <p>Al jazeera English</p>
+            <p>Associated Press</p>
+            <p>Axios</p>
+            <p>Breitbart News</p>
+            <p>CBS News</p>
+            <p>CNN</p>
+            <p>CNN Spanish</p>
+            <p>Fox News</p>
+            <p>Google News</p>
+            <p>MSNBC</p>
+            <p>NBC News</p>
+            <p>News Week</p>
+            <p>New York Magazine</p>
+            <p>Politico</p>
+            <p>Reddit</p>
+            <p>Reuters</p>
+            <p>The Hill</p>
+            <p>The Washington Post</p>
+            <p>New York Times</p>
+            <p>Time</p>
+            <p>USA Today</p>
+            <p>Vice News</p>
+
+            <hr />
+            <h4>Business Sources</h4>
+            <hr />
+            <p>Bloomberg</p>
+            <p>Business Insider</p>
+            <p>CNBC</p>
+            <p>Fortune</p>
+            <p>The Wall Street Journal</p>
+
+            <hr />
+            <h4>Entertainment Sources</h4>
+            <hr />
+            <p>BuzzFeed</p>
+            <p>Entertainment Weekly</p>
+            <p>IGN</p>
+            <p>Mashable</p>
+            <p>MTN News</p>
+            <p>Polygon</p>
+
+            <hr />
+            <h4>Health Sources</h4>
+            <hr />
+            <p>Medical News</p>
+            <p>Today</p>
+
+            <hr />
+            <h4>Technology Sources</h4>
+            <hr />
+            <p>Ars Technica</p>
+            <p>Crypto Coins News</p>
+            <p>Engadget</p>
+            <p>Hacker News</p>
+            <p>Recode</p>
+            <p>TechCrunch</p>
+            <p>TechRadar</p>
+            <p>The Next Web</p>
+            <p>The Verge</p>
+            <p>Wired</p>
+
+            <hr />
+            <h4>Sports Sources</h4>
+            <hr />
+            <p>Bleacher Report</p>
+            <p>ESPN</p>
+            <p>Cric Info</p>
+            <p>Fox News</p>
+            <p>NFL News</p>
+            <p>NHL News</p>
+
+        </div>
+
+
+        <style>
+            .sidepane p {
+                color: white;
+                padding-left: 1.5em;
+            }
+
+            .sidepane h4 {
+                color: white;
+                padding-left: 1em;
+            }
+        </style>
+
+    </div>
+    <div class="col-md-10" style="background-color: whitesmoke; padding: 0;">
+        {{macro.displayCategoriesList(business)}}
+    </div>
+
+</div>
+
+
+{% endblock %}
