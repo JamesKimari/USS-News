@@ -1,11 +1,11 @@
 {% macro displaySourceList(sources_list) %} {% for source in sources_list %}
 <div class="hover">
-    <a href="/news/{{source.id}}" style="text-decoration: none; color:#d5dade;">{{source.name}}</a>
+    <a href="/news/{{source.id}}" style="color:#d5dade;">{{source.name}}</a>
 </div>
 
 <style>
     
-    .hover a:hover {
+    a:hover {
         color: #42aadd;
     }
 
