@@ -3,7 +3,11 @@
     <div class="col-md-2" style="background-color: rgb(34,53,71)">
         
         <div class="sidepane">
-            <hr /><h4>General Sources</h4><hr />
+            <hr />
+            <a href="{{ url_for('main.index') }}" id="homepage">
+            <h4 style="color: dodgerblue;">BACK TO HOMEPAGE</h4>            
+            </a>
+            <hr />
             <p>ABC News</p>
             <p>Al jazeera English</p>
             <p>Associated Press</p>
@@ -72,12 +76,13 @@
 
 <style>
    .sidepane p{
-       color: white;
+       color: #d5dade;
        padding-left: 1.5em;
+       font-size: 16px;
    }
 
    .sidepane h4{
-       color: white;
+       color: #d5dade;
        padding-left: 1em;
    }
 </style>
