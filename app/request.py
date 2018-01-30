@@ -1,5 +1,5 @@
 import urllib.request, json
-from .models import Source, News
+from .models import Source, News, Category
 
 
 # Getting api key
@@ -8,12 +8,14 @@ api_key = None
 # Getting the news base url
 base_url = None
 news_url = None
+catg_url = None
 
 def configure_request(app):
-    global api_key, base_url, news_url
+    global api_key, base_url, news_url, catg_url
     api_key = app.config['NEWS_API_KEY']
     base_url = app.config['SOURCES_API_BASE_URL']
     news_url = app.config['NEWS_API_BASE_URL']
+    catg_url = app.config['CATG_API_BASE_URL']
 
 def get_sources(category):
     """
@@ -92,3 +94,42 @@ def process_articles(news_list):
             news_articles.append(news_object)
           
     return news_articles
+
+
+def get_category(category):
+    """
+    Function that gets the json response to our url request
+    """
+    get_sources_url = catg_url.format(category, api_key)
+
+    with urllib.request.urlopen(get_sources_url) as url:
+        get_categories_data = url.read()
+        get_categories_response = json.loads(get_categories_data)
+
+        news_categories_articles = None
+
+        if get_categories_response['articles']:
+            news_categories_list = get_categories_response['articles']
+            news_categories_articles = process_categories(news_categories_list)
+
+    return news_categories_articles
+
+
+def process_categories(categories_list):
+    """
+    Function that processes the news sources and transforms them to a list of objects
+    """
+    news_categories_articles = []
+
+    for category in categories_list:
+        title = category.get('title')
+        description = category.get('description')
+        url = category.get('url')
+        urlToImage = category.get('urlToImage')
+        publishedAt = category.get('publishedAt')
+
+        if urlToImage:
+            source_object = Category(title, description, url, urlToImage, publishedAt)
+            news_categories_articles.append(source_object)
+
+    return news_categories_articles

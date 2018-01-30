@@ -1,6 +1,6 @@
 from flask import render_template
 from . import main
-from ..request import get_sources, get_news
+from ..request import get_sources, get_news, get_category
 
 @main.route('/')
 def index():
@@ -22,8 +22,17 @@ def index():
 @main.route('/news/<id>')
 def news(id):
     """
-    view root page function that returns the index page and its data
+    view root page function that returns the news page and its data
     """
     news_articles = get_news(id)
        
     return render_template('news.html', news = news_articles)
+
+@main.route('/categories/<category>')
+def general(category):
+    """
+    view root page function that returns the categories page and its data
+    """
+    news_categories_articles = get_category(category)
+
+    return render_template('general.html', general = news_categories_articles)
