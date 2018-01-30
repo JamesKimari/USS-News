@@ -24,7 +24,7 @@ static/images/usnews.png)
 ## Setup/Installation Requirements
 
 > - Internet connection
-> - Link to deployed page: [Heroku]()
+> - Link to deployed page: [Heroku](https://uss-news.herokuapp.com/)
 
 ## Known Bugs
 
