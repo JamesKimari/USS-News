@@ -6,7 +6,7 @@
 
 > Project Name: US News
 
-![US News Web App](/static/images/usnews.png)
+![US News Web App](/app/static/images/usnews.png)
 
 > --------------------------------------------------------------------------------
 
